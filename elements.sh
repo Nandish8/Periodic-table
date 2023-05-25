@@ -14,22 +14,22 @@ then
       ELEMENT=$($PSQL "SELECT * FROM elements INNER JOIN properties USING(atomic_number) INNER JOIN types USING(type_id) WHERE name='$SYMBOL'")
       if [[ -z $ELEMENT ]]
       then
-        echo "I could not find that element int the database."
+        echo "I could not find that element in the database."
       else
         echo "$ELEMENT" | while read BAR BAR ATOMICNUM BAR SYM BAR NAME BAR ATOMICMASS BAR MELP BAR BOILP BAR TYPE 
         do
-        echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
+        echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS amu. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
         done
       fi
     else
       ELEMENT=$($PSQL "SELECT * FROM elements INNER JOIN properties USING(atomic_number) INNER JOIN types USING(type_id) WHERE symbol='$SYMBOL'")
       if [[ -z $ELEMENT ]]
       then
-        echo "I could not find that element int the database."
+        echo "I could not find that element in the database."
       else
         echo "$ELEMENT" | while read BAR BAR ATOMICNUM BAR SYM BAR NAME BAR ATOMICMASS BAR MELP BAR BOILP BAR TYPE 
         do
-        echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
+        echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS amu. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
         done
       fi
     fi
@@ -37,11 +37,11 @@ then
     ELEMENT=$($PSQL "SELECT * FROM elements INNER JOIN properties USING(atomic_number) INNER JOIN types USING(type_id) WHERE atomic_number='$SYMBOL'")
     if [[ -z $ELEMENT ]]
     then
-      echo "I could not find that element int the database."
+      echo "I could not find that element in the database."
     else
       echo "$ELEMENT" | while read BAR BAR ATOMICNUM BAR SYM BAR NAME BAR ATOMICMASS BAR MELP BAR BOILP BAR TYPE 
       do
-      echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
+      echo "The element with atomic number $ATOMICNUM is $NAME ($SYM). It's a $TYPE, with a mass of $ATOMICMASS amu. $NAME has a melting point of $MELP celsius and a boiling point of $BOILP celsius."
       done
     fi
   fi
